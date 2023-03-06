@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata: 
+  name: first-program-deploy
+  labels: 
+    app: first-program 
+spec: 
+  replicas: 2 
+  selector: 
+    matchLabels: 
+      app: first-program 
+  template: 
+    metadata: 
+      labels: 
+        app: first-program 
+    spec: 
+      containers: 
+      - name: first-program 
+        image: europe-central2-docker.pkg.dev/asi-gke-dev/asi-gke-repos/first-program:v1
+        ports: 
+        - containerPort: 8080
